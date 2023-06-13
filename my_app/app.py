@@ -22,7 +22,8 @@ def get_db():
     # Get path to database
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     db_path = os.path.join(BASE_DIR, db_name)
-    # defining g module's database attribute 
+    # define db equal to g module's database attribute if attribute
+    # does not exist db will be equal to None
     db = getattr(g, '_database', None)
     if db is None:
         db = g._database = sqlite3.connect(db_path)
