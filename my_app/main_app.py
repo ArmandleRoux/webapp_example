@@ -99,6 +99,19 @@ def edit_user_data():
     user = User.query.filter_by(username = username).first()
     colour = user.fav_colour
     return render_template('add_user_data.html', colour=colour)
+
+
+@main_app.route('/submitdata', methods=['POST'])
+@login_required
+def update_user_data():
+    birth_date = request.form.get('birth_date')
+    colour = request.form.get('colour')
+    user = User.query.filter_by(username=current_user.username).first()
+    print(user)
+    user.birth_date = birth_date
+    user.fav_colour = colour
+    db.session.commit()
+    return redirect('/home')
     
     
 def auth_password(password):
