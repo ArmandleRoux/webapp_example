@@ -96,15 +96,13 @@ def users():
 @login_required
 def edit_user_data():
     username = session['name']
-    # result = query_db(get_db(), "SELECT birth_date, colour FROM Users WHERE username=?", tuple(username), True)
-    result = []
-    birth_date = result[0]
-    colour = result[1]
-    return render_template('add_user_data.html')
+    user = User.query.filter_by(username = username).first()
+    colour = user.fav_colour
+    return render_template('add_user_data.html', colour=colour)
     
     
 def auth_password(password):
-    if 8 < len(password) < 24:
+    if 8 <= len(password) <= 24:
         return True
     return False
         
