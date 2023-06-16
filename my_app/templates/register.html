@@ -4,11 +4,11 @@
 <div>
   <h1>Welcome to the homepage!</h1>
 </div>
-<div>Please register for a game below:</div>
+<div>Please register below:</div>
 <div>
   <form action="/submitregister" method="post">
-    <label for="name">Username: </label>
-    <input type="text" id="name" name="name" autocomplete="off" required />
+    <label for="username">Username: </label>
+    <input type="text" id="username" name="username" autocomplete="off" required />
     <label for="password">Password: </label>
     <input
       type="password"
@@ -27,6 +27,6 @@
     />
     <button type="submit">Register</button>
   </form>
-  <script src="{{ url_for('static', filename='changeTheme.js') }}"></script>
 </div>
+<form action="/login"><button type="submit">Login</button></form>
 {% endblock %}
