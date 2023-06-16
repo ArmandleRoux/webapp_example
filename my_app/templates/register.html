@@ -1,23 +1,25 @@
 {% extends "layout.html" %} {% block head %}
 <title>Home Page</title>
+<link rel="stylesheet" href="/static/style.css">
 {% endblock %} {% block body %}
+<div class="container">
 <div>
-  <h1>Welcome to the homepage!</h1>
+  <h1><b>Welcome to the homepage!</b></h1>
 </div>
-<div>Please register for a game below:</div>
+<div><b>Please register for a game below:</b></div><br>
 <div>
   <form action="/submitregister" method="post">
     <label for="name">Username: </label>
-    <input type="text" id="name" name="name" autocomplete="off" required />
-    <label for="password">Password: </label>
+    <input type="text" id="name" name="name" autocomplete="off" required /><br>
+    <label for="password">Password: </label> 
     <input
       type="password"
       id="password"
       name="password"
       autocomplete="off"
       required
-    />
-    <label for="conf_pw">Confirm Password: </label>
+    /><br> 
+    <br><label for="conf_pw">Confirm Password: </label><br>
     <input
       type="password"
       id="conf_pw"
@@ -28,5 +30,6 @@
     <button type="submit">Register</button>
   </form>
   <script src="{{ url_for('static', filename='changeTheme.js') }}"></script>
+</div>
 </div>
 {% endblock %}

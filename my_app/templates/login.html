@@ -1,14 +1,26 @@
 {% extends "layout.html" %} {% block head %}
 <title>Home Page</title>
+<style>
+* {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+}
+body{
+    font-size:36px;
+}
+button{
+    font-size: 36px;
+}
+</style>
 {% endblock %} {% block body %}
+<div class="background1">
 <div>
-  <h1>Welcome to the homepage!</h1>
+  <h1><b>Welcome to the homepage!</b></h1>
 </div>
-<div>Please login below:</div>
+<div>Please login below:</div><br>
 <div>
   <form action="/submitlogin" method="post">
     <label for="name">Username: </label>
-    <input type="text" id="name" name="name" autocomplete="off" required />
+    <input type="text" id="name" name="name" autocomplete="off" required /><br>
     <label for="password">Password: </label>
     <input
       type="password"
@@ -20,5 +32,6 @@
     <button type="submit">Login</button>
   </form>
   <script src="{{ url_for('static', filename='changeTheme.js') }}"></script>
+</div>
 </div>
 {% endblock %}
