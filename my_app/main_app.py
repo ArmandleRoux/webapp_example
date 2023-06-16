@@ -7,6 +7,8 @@ from hashlib import sha512
 
 main_app = Blueprint('main_app', __name__)
 
+
+# Directs user to login if not logged in otherwise to home page
 @main_app.route('/')
 def index():
     if not session.get('name'):
@@ -20,10 +22,13 @@ def register():
     return render_template('register.html')
     
 
+# Render login page for user
 @main_app.route("/login")
 def login():
     return render_template('login.html')
 
+
+# Log user out and return to them to login page
 @main_app.route("/logout")
 def logout():
     logout_user()
@@ -31,6 +36,7 @@ def logout():
     return redirect('/login')
 
 
+# Provides user with home page if they are logged in
 @main_app.route('/home')
 @login_required
 def home_page():
@@ -38,6 +44,7 @@ def home_page():
     return render_template('sign_in_home.html', username=username)
 
 
+# Check user login data and log them in.
 @main_app.route('/submitlogin', methods=["POST"])
 def submit_login():
     username = request.form.get('name')
@@ -53,7 +60,7 @@ def submit_login():
     return render_template('login_fail.html', message="Login has failed!")
 
 
-# Submit checks if username is already in database and return corresponding page.
+# Determine if user entered valid credential and 
 @main_app.route('/submitregister', methods=["POST"])
 def submit_register():
     username = request.form.get('name')
@@ -69,7 +76,8 @@ def submit_register():
     except:
         return render_template('register_fail.html', message="Username in unavailable!")
     new_user = User.query.filter_by(username = username).first()
-    login_user(new_user)
+    if new_user:
+        login_user(new_user)
     return render_template('sign_in_home.html', message= "Register Success", username=username)
         
         
