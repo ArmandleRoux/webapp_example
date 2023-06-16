@@ -1,20 +1,24 @@
-{% extends "layout.html" %}
-
-{% block head %}
+{% extends "layout.html" %} {% block head %}
 <title>User Edit</title>
-{% endblock %}
-
-{% block body %}
+{% endblock %} {% block body %}
 <div>
-    <h1>Edit your data below.</h1>
+  <h1>Edit your data below.</h1>
 </div>
 <div>
-    <form action="/submitdata" method="post">
-        <label for="birth_date">Birth date: </label>
-        <input type="date" id="birthday" name="birthday">
-        <label for="colour">Favourite colour: </label>
-        <input type="text" id="colour" name="colour" placeholder="{{ colour }}" autocomplete="off" required>
-        <button type="submit">submit</button>
-    </form>
+  <form action="/submitdata" method="post">
+    <label for="birth_date">Birth date: </label>
+    <input type="date" id="birthday" name="birthday" />
+    <label for="colour">Favourite colour: </label>
+    <input
+      type="text"
+      id="colour"
+      name="colour"
+      placeholder="{{ colour }}"
+      autocomplete="off"
+      required
+    />
+    <button type="submit">submit</button>
+  </form>
+  <script src="{{ url_for('static', filename='changeTheme.js') }}"></script>
 </div>
 {% endblock %}

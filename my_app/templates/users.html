@@ -10,5 +10,7 @@
         <li>{{ user }}</li>
     {% endfor %}  
     <form action="/"><button type="submit">Back</button></button></form>
-    </ul></body>
+    </ul>
+    <script src="{{ url_for('static', filename='changeTheme.js') }}"></script>
+</body>
 {% endblock %}

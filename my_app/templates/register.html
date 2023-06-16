@@ -1,23 +1,32 @@
-{% extends "layout.html" %}
-
-{% block head %}
+{% extends "layout.html" %} {% block head %}
 <title>Home Page</title>
-{% endblock %}
-
-{% block body %}
+{% endblock %} {% block body %}
 <div>
-    <h1>Welcome to the homepage!</h1>
+  <h1>Welcome to the homepage!</h1>
 </div>
 <div>Please register for a game below:</div>
 <div>
-    <form action="/submitregister" method="post">
-        <label for="name">Username: </label>
-        <input type="text" id="name" name="name" autocomplete="off" required>
-        <label for="password">Password: </label>
-        <input type="password" id="password" name="password" autocomplete="off" required>
-        <label for="conf_pw">Confirm Password: </label>
-        <input type="password" id="conf_pw" name="conf_pw" autocomplete="off" required>
-        <button type="submit">Register</button>
-    </form>
+  <form action="/submitregister" method="post">
+    <label for="name">Username: </label>
+    <input type="text" id="name" name="name" autocomplete="off" required />
+    <label for="password">Password: </label>
+    <input
+      type="password"
+      id="password"
+      name="password"
+      autocomplete="off"
+      required
+    />
+    <label for="conf_pw">Confirm Password: </label>
+    <input
+      type="password"
+      id="conf_pw"
+      name="conf_pw"
+      autocomplete="off"
+      required
+    />
+    <button type="submit">Register</button>
+  </form>
+  <script src="{{ url_for('static', filename='changeTheme.js') }}"></script>
 </div>
 {% endblock %}

@@ -1,10 +1,12 @@
-{% extends "layout.html" %}
-
-{% block head %}
+{% extends "layout.html" %} {% block head %}
 <title>Successful Login</title>
-{% endblock %}
-
-{% block body %}
+{% endblock %} {% block body %}
 <div><h3>Welcome {{ username }}!</h3></div>
-<div><form action="/users" method="post"><button type="submit">See all users</button></form></div>
+<div>
+  <form action="/users" method="post">
+    <button type="submit">See all users</button>
+  </form>
+  <script src="{{ url_for('static', filename='changeTheme.js') }}"></script>
+</div>
+
 {% endblock %}
