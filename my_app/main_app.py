@@ -125,7 +125,7 @@ def update_user_data():
     colour = request.form.get('colour')
     user = User.query.filter_by(username=current_user.username).first()
     print(user)
-    user.birth_date = birth_date
+    # user.birth_date = birth_date
     user.fav_colour = colour
     db.session.commit()
     return redirect('/home')
